@@ -1,5 +1,5 @@
 # HelloAgents智能旅行助手 🌍✈️
-
+因为优化只设计后端部分，所以该项目只上传了后端文件，前端文件请到helloagents第13章智能旅行助手下载。
 本项目基于HelloAgents框架构建的智能旅行规划助手，做出了部分优化，具体优化如下(trip_planner_agent.py)：
 ### 1. 交互协议重构：引入原生结构化输出 (Structured Outputs)
 - **优化前痛点**：原系统依赖 Prompt 硬编码（如 `[TOOL_CALL...]`）和正则表达式提取 JSON，极易因大模型幻觉（多出空格、Markdown 符号等）导致解析崩溃。
