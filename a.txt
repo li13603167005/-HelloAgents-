@@ -1,0 +1,13 @@
+ print("  - 创建共享MCP工具...")
+            self.amap_tool = MCPTool(
+                name="amap",
+                description="高德地图服务",
+                server_command=[r"D:\Anaconda\envs\amap-env\python.exe",
+                "-X", "utf8",
+                "-m",
+                "amap_mcp_server"],
+                env={
+                    **os.environ,
+                    "AMAP_MAPS_API_KEY": settings.amap_api_key,
+                    "PYTHONIOENCODING":"utf-8"},
+                auto_expand=False
