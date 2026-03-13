@@ -213,11 +213,12 @@ mcp run amap_mcp_server --transport sse --port 8080
             print("  - 连接独立的 MCP 微服务...")
             self.amap_tool = MCPTool(
                 name="amap",
-                description="高德地图服务",
+                description="高德地图服务",                                                        
                 # 👇 彻底抛弃繁重的本地进程管理，改为轻量的网络 SSE 连接
                 server_url="http://localhost:8080/sse",
                 auto_expand=True 
             )
 ```
 去掉了 server_command 和繁琐的 env 环境变量注入。因为高德的 API Key 此时只需要配置在那个独立的 MCP 服务器上即可，主程序彻底与它解耦，变成了一个纯粹的“调用方”。
+
 **核心收益**：实现了“业务逻辑”与“工具执行”的物理隔离。不仅彻底根除了环境污染与阻塞崩溃问题，还使得底层地图服务具备了独立水平扩容（Scale-out）的能力，令系统真正具备了工业级生产环境的部署标准。
